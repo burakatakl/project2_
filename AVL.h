@@ -77,7 +77,17 @@ private:
             return turningleft(Node);
         }
         return Node;
-
+    }
+    bool searchuse(node* Node,std::string ky){
+        if(Node== nullptr){
+            return false;
+        }
+        if(Node->ky==ky){
+            return searchuse(Node->leftside,ky);
+        }
+        else{
+            return searchuse(Node->rightside,ky);
+        }
     }
 
 
