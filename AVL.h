@@ -47,6 +47,26 @@ private:
         b->height=std::max(getheight(b->leftside), getheight(b->rightside))+1;
         return b;
     }
+    node*insertuse(node* Node,std::string ky){
+        if (Node== nullptr){
+            return new node(ky);
+        }
+        if (ky < Node->ky){
+            Node->leftside= insertuse(Node->leftside,ky);
+        }
+        else if (ky>Node->ky){
+            Node->rightside= insertuse(Node->rightside,ky);
+        }
+        else{
+            return Node;
+        }
+        Node->height=1+std::max(getheight(Node->leftside), getheight(Node->rightside));
+        int bln= getbalance(Node);
+        if(bln>1&& ky<Node->leftside->ky){
+            return turningright(Node);
+        }
+
+    }
 
 
 
@@ -54,4 +74,4 @@ private:
 };
 
 
-#endif //PROJECT2__AVL_H
+#endif
