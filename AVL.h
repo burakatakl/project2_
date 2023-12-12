@@ -65,8 +65,21 @@ private:
         if(bln>1&& ky<Node->leftside->ky){
             return turningright(Node);
         }
+        if(bln< -1 && ky>Node->rightside->ky){
+            return turningleft(Node);
+        }
+        if(bln>1&&ky>Node->leftside->ky){
+            Node->leftside= turningleft(Node->leftside);
+            return turningright(Node);
+        }
+        if (bln<-1&&ky<Node->rightside->ky){
+            Node->rightside= turningright(Node->rightside);
+            return turningleft(Node);
+        }
+        return Node;
 
     }
+
 
 
 
