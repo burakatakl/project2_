@@ -38,6 +38,17 @@ private:
         a->height=std::max(getheight(a->leftside), getheight(a->rightside))+1;
         return a;
     }
+    node* turningleft(node*a){
+        node* b=a->rightside;
+        node* t=b->leftside;
+        b->leftside=a;
+        a->rightside=t;
+        a->height=std::max(getheight(a->leftside), getheight(a->rightside))+1;
+        b->height=std::max(getheight(b->leftside), getheight(b->rightside))+1;
+        return b;
+    }
+
+
 
 
 };
