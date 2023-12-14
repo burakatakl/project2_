@@ -32,22 +32,22 @@ private:
     node* turningright(node* b){
         node* a=b->leftside;
         node* t=a->rightside;
-        a->rightside=b;
+        a->rightside=b;//rotation
         b->leftside=t;
         b->height=std::max(getheight(b->leftside), getheight(b->rightside))+1;
         a->height=std::max(getheight(a->leftside), getheight(a->rightside))+1;
-        return a;
+        return a;//this funtiun for i am always uptating height
     }
     node* turningleft(node*a){
         node* b=a->rightside;
         node* t=b->leftside;
-        b->leftside=a;
+        b->leftside=a;//rotation
         a->rightside=t;
         a->height=std::max(getheight(a->leftside), getheight(a->rightside))+1;
         b->height=std::max(getheight(b->leftside), getheight(b->rightside))+1;
-        return b;
+        return b;// and again i am uptating height
     }
-    node*insertuse(node* Node,std::string ky){
+    node*insertuse(node* Node,std::string ky){// i am adding standart bst tree
         if (Node== nullptr){
             return new node(ky);
         }
@@ -59,22 +59,22 @@ private:
         }
         else{
             return Node;
-        }
+        }//uptating for height
         Node->height=1+std::max(getheight(Node->leftside), getheight(Node->rightside));
-        int bln= getbalance(Node);
+        int bln= getbalance(Node);  // i am taking balance factor
         if(bln>1&& ky<Node->leftside->ky){
-            return turningright(Node);
+            return turningright(Node);// left left sititon
         }
-        if(bln< -1 && ky>Node->rightside->ky){
-            return turningleft(Node);
+        if(bln< -1 && ky>Node->rightside->ky){// when is nececary my function doing rotation for blance
+            return turningleft(Node);// right right
         }
         if(bln>1&&ky>Node->leftside->ky){
             Node->leftside= turningleft(Node->leftside);
-            return turningright(Node);
+            return turningright(Node); // left right
         }
         if (bln<-1&&ky<Node->rightside->ky){
             Node->rightside= turningright(Node->rightside);
-            return turningleft(Node);
+            return turningleft(Node);// right left
         }
         return Node;
     }
