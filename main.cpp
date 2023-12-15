@@ -23,8 +23,8 @@ std::vector<std::string>randomWords(int numw, int worldlenght){
 
 int main() {
 
-    int numw=10000;
-    int worldlenght;
+    int numw=10;
+    int worldlenght=5;
     std::vector<std::string> randomwords= randomWords(numw,worldlenght);
 
     std::cout<<"BST tree: ";
@@ -38,6 +38,19 @@ int main() {
     auto ebst=std::chrono::high_resolution_clock::now();
     auto durationbst=std::chrono::duration_cast<std::chrono::nanoseconds>(ebst-sbst).count();
     std::cout<<"BTS tree time: "<<durationbst;
+    std::cout<<std::endl;
+
+    std::cout<<"AVL tree: ";
+    auto savl=std::chrono::high_resolution_clock ::now();
+    avl avltree;
+    for(const auto& word:randomwords){
+        avltree.insert(word);
+        std::cout<<word<<" ";
+    }
+    std::cout<<std::endl;
+    auto eavl=std::chrono::high_resolution_clock ::now();
+    auto durationavl=std::chrono::duration_cast<std::chrono::nanoseconds>(eavl-savl).count();
+    std::cout<<"AVL tree time: "<<durationavl;
 
     return 0;
 }
