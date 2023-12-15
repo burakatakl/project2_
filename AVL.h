@@ -32,8 +32,8 @@ private:
     node* turningright(node* b){
         node* a=b->leftside;
         node* t=a->rightside;
-        a->rightside=b;//rotation
         b->leftside=t;
+        a->rightside=b;//rotation
         b->height=std::max(getheight(b->leftside), getheight(b->rightside))+1;
         a->height=std::max(getheight(a->leftside), getheight(a->rightside))+1;
         return a;//this funtiun for i am always uptating height
@@ -41,8 +41,8 @@ private:
     node* turningleft(node*a){
         node* b=a->rightside;
         node* t=b->leftside;
-        b->leftside=a;//rotation
-        a->rightside=t;
+        a->rightside=t;//rotation
+        b->leftside=a;
         a->height=std::max(getheight(a->leftside), getheight(a->rightside))+1;
         b->height=std::max(getheight(b->leftside), getheight(b->rightside))+1;
         return b;// and again i am uptating height
