@@ -89,11 +89,11 @@ private:
             return searchuse(Node->rightside,ky);
         }
     }
-
-
-
-
-
+public:
+    avl() :root(nullptr){}
+    void insert(std::string ky){
+        root= insertuse(root,ky);
+    }
 };
 
 
