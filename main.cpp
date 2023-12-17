@@ -8,7 +8,6 @@
 #include <ctime>
 void seedRandomizer(){
     srand(static_cast<unsigned int>(time(nullptr)));
-
 }
 std::vector<std::string>randomWords(int numw, int worldlength){ // i can create random words
    std::vector<std::string > words;
