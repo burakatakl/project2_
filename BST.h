@@ -13,7 +13,7 @@ struct Node{
 class Bst{
 private:
     Node* root;
-    Node*insertuse(Node* node,std::string ky){
+    Node*insertuse(Node* node,std::string ky){// this is helper funtion to search for specific key in BTS
         if(node== nullptr){
             return new Node(ky);
         }
@@ -22,7 +22,7 @@ private:
         }
         return node;
     }
-    bool searchuse(Node*node,std::string ky){
+    bool searchuse(Node*node,std::string ky){ // in my funtion this is the helper function search for specific key
         if (node== nullptr){
             return false;
         }
