@@ -17,19 +17,19 @@ struct node{
 class avl{
 private:
     node* root;
-    int getheight(node* node){
+    int getheight(node* node){ // in this funtion i can calculate height
         if(node== nullptr){
             return 0;
         }
         return node ->height;
     }
-    int getbalance(node* node){
+    int getbalance(node* node){ //  in this function i can calculate for balance
         if(node == nullptr){
             return 0;
         }
         return getheight(node ->leftside)- getheight(node->rightside);
     }
-    node* turningright(node* b){
+    node* turningright(node* b){ // turning right rotation
         node* a=b->leftside;
         node* t=a->rightside;
         b->leftside=t;
@@ -38,7 +38,7 @@ private:
         a->height=std::max(getheight(a->leftside), getheight(a->rightside))+1;
         return a;//this funtiun for i am always uptating height
     }
-    node* turningleft(node*a){
+    node* turningleft(node*a){ //turning left ratition
         node* b=a->rightside;
         node* t=b->leftside;
         a->rightside=t;//rotation

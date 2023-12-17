@@ -10,7 +10,7 @@ void seedRandomizer(){
     srand(static_cast<unsigned int>(time(nullptr)));
 
 }
-std::vector<std::string>randomWords(int numw, int worldlength){
+std::vector<std::string>randomWords(int numw, int worldlength){ // i can create random words
    std::vector<std::string > words;
     for (int i=0;i<numw;i++){
         std::string word;
@@ -25,11 +25,11 @@ std::vector<std::string>randomWords(int numw, int worldlength){
 
 int main() {
     seedRandomizer();
-    const int numw=10;
-    const int worldlength=5;
+    const int numw=10;// number of words
+    const int worldlength=5; //world lenght
     std::vector<std::string> randomwords= randomWords(numw,worldlength);
 
-    std::cout<<"BST tree: ";
+    std::cout<<"BST tree: "; // BST tree
     auto sbst=std::chrono::high_resolution_clock::now();
     Bst bst;
     for(const auto& word:randomwords){
@@ -42,7 +42,7 @@ int main() {
     std::cout<<"BTS tree time: "<<durationbst;
     std::cout<<"\n";
 
-    std::cout<<"AVL tree: ";
+    std::cout<<"AVL tree: "; //AVL tree
     const auto savl=std::chrono::high_resolution_clock ::now();
     avl avltree;
     for(const auto& word:randomwords){
